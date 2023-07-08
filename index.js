@@ -102,14 +102,33 @@ let greatestIncrease = 0;
 Steps to calculate:
 1. Compare month n + 1 to month n
 2. Subtract month n from month n+1 to calculate the change
-3. If that value is higher than the value currently stored in greatestIncrease then update the value of greatestIncrase, otherwise iterate through the for loop to the next values in the array
+3. If that value is higher than the value currently stored in greatestIncrease then update the value of greatestIncrease, otherwise iterate through the for loop to the next values in the array
 
 Solution:
 - for loop from i = 0 to i = finances.length - 1 (i.e. < finances.length)
 - iterate and compare each pair of values in the array
 - once completed the for loop, the value stored in greatestIncrease is the answer
 
+Question:
+How to store the month value also?
+
 */
+function calculateGreatestIncrease(finances) {
+  let _tempVariable = 0;
+  let _greatestIncrease = 0;
+  let nPlusOne = 0;
+  for (i = 0; i < finances.length; i++) {
+    nPlusOne = i + 1;
+    console.log(typeof finances);
+    _tempVariable = finances[nPlusOne][1] - finances[i][1];
+    if (_tempVariable > _greatestIncrease) {
+      _tempVariable = _greatestIncrease;
+    }
+  }
+  return _greatestIncrease;
+}
+
+greatestIncrease = calculateGreatestIncrease(finances);
 
 // Calculate greatest decrease in profits (date and amount) over the entire period
 let greatestDecrease = 0;
@@ -119,3 +138,10 @@ console.log(`Financial Analysis`);
 console.log(`----------------------------`);
 console.log(`Total Months: ${finances.length}`);
 console.log(`Total: $${total}`);
+console.log(`Average Change: [INSERT SOLUTION]`);
+console.log(
+  `Greatest Increase in Profits/Losses: [INSERT SOLUTION MONTH] ${greatestIncrease}`
+);
+console.log(
+  `Greatest Decrease in Profits/Losses: [INSERT SOLUTION MONTH] [INSERT SOLUTION VALUE]`
+);
