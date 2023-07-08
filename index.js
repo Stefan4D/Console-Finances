@@ -97,6 +97,7 @@ for (let i = 0; i < finances.length; i++) {
 
 // Calculate greatest increase in profits (date and amount) over the entire period
 let greatestIncrease = 0;
+let greatestIncreaseMonth = "";
 /*
 
 Steps to calculate:
@@ -113,22 +114,21 @@ Question:
 How to store the month value also?
 
 */
-function calculateGreatestIncrease(finances) {
-  let _tempVariable = 0;
-  let _greatestIncrease = 0;
-  let nPlusOne = 0;
-  for (i = 0; i < finances.length; i++) {
-    nPlusOne = i + 1;
-    console.log(typeof finances);
-    _tempVariable = finances[nPlusOne][1] - finances[i][1];
-    if (_tempVariable > _greatestIncrease) {
-      _tempVariable = _greatestIncrease;
-    }
-  }
-  return _greatestIncrease;
-}
+// console.log(finances[0 + 1][1]);
+// console.log(finances[0][1]);
+console.log(typeof finances[1][1]);
 
-greatestIncrease = calculateGreatestIncrease(finances);
+for (let i = 0; i < finances.length - 1; i++) {
+  let _tempVariable = 0;
+  let j = i + 1;
+
+  _tempVariable = finances[j][1] - finances[i][1];
+
+  if (_tempVariable > greatestIncrease) {
+    greatestIncrease = _tempVariable;
+    greatestIncreaseMonth = finances[j][0];
+  }
+}
 
 // Calculate greatest decrease in profits (date and amount) over the entire period
 let greatestDecrease = 0;
@@ -140,7 +140,7 @@ console.log(`Total Months: ${finances.length}`);
 console.log(`Total: $${total}`);
 console.log(`Average Change: [INSERT SOLUTION]`);
 console.log(
-  `Greatest Increase in Profits/Losses: [INSERT SOLUTION MONTH] ${greatestIncrease}`
+  `Greatest Increase in Profits/Losses: ${greatestIncreaseMonth} ${greatestIncrease}`
 );
 console.log(
   `Greatest Decrease in Profits/Losses: [INSERT SOLUTION MONTH] [INSERT SOLUTION VALUE]`
