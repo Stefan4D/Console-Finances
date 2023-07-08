@@ -96,8 +96,23 @@ for (let i = 0; i < finances.length; i++) {
 // Calculate average monthly change
 
 // Calculate greatest increase in profits (date and amount) over the entire period
+let greatestIncrease = 0;
+/*
+
+Steps to calculate:
+1. Compare month n + 1 to month n
+2. Subtract month n from month n+1 to calculate the change
+3. If that value is higher than the value currently stored in greatestIncrease then update the value of greatestIncrase, otherwise iterate through the for loop to the next values in the array
+
+Solution:
+- for loop from i = 0 to i = finances.length - 1 (i.e. < finances.length)
+- iterate and compare each pair of values in the array
+- once completed the for loop, the value stored in greatestIncrease is the answer
+
+*/
 
 // Calculate greatest decrease in profits (date and amount) over the entire period
+let greatestDecrease = 0;
 
 // Log answers to console
 console.log(`Financial Analysis`);
