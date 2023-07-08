@@ -110,13 +110,7 @@ Solution:
 - iterate and compare each pair of values in the array
 - once completed the for loop, the value stored in greatestIncrease is the answer
 
-Question:
-How to store the month value also?
-
 */
-// console.log(finances[0 + 1][1]);
-// console.log(finances[0][1]);
-console.log(typeof finances[1][1]);
 
 for (let i = 0; i < finances.length - 1; i++) {
   let _tempVariable = 0;
@@ -132,6 +126,34 @@ for (let i = 0; i < finances.length - 1; i++) {
 
 // Calculate greatest decrease in profits (date and amount) over the entire period
 let greatestDecrease = 0;
+let greatestDecreaseMonth = "";
+
+/*
+
+Steps to calculate:
+1. Compare month n + 1 to month n
+2. Subtract month n from month n+1 to calculate the change
+3. If that value is --lower-- than the value currently stored in greatestDecrease then update the value of greatestDecrease, otherwise iterate through the for loop to the next values in the array
+
+Solution:
+- for loop from i = 0 to i = finances.length - 1 (i.e. < finances.length)
+- iterate and compare each pair of values in the array
+- once completed the for loop, the value stored in greatestDecrease is the answer
+
+*/
+
+for (let i = 0; i < finances.length - 1; i++) {
+  let _tempVariable = 0;
+  let j = i + 1;
+
+  _tempVariable = finances[j][1] - finances[i][1];
+
+  // flip greater than to less than
+  if (_tempVariable < greatestDecrease) {
+    greatestDecrease = _tempVariable;
+    greatestDecreaseMonth = finances[j][0];
+  }
+}
 
 // Log answers to console
 console.log(`Financial Analysis`);
@@ -140,8 +162,8 @@ console.log(`Total Months: ${finances.length}`);
 console.log(`Total: $${total}`);
 console.log(`Average Change: [INSERT SOLUTION]`);
 console.log(
-  `Greatest Increase in Profits/Losses: ${greatestIncreaseMonth} ${greatestIncrease}`
+  `Greatest Increase in Profits/Losses: ${greatestIncreaseMonth} ($${greatestIncrease})`
 );
 console.log(
-  `Greatest Decrease in Profits/Losses: [INSERT SOLUTION MONTH] [INSERT SOLUTION VALUE]`
+  `Greatest Decrease in Profits/Losses: ${greatestDecreaseMonth} ($${greatestDecrease})`
 );
