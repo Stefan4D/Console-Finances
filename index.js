@@ -197,3 +197,13 @@ console.log(
 console.log(
   `Greatest Decrease in Profits/Losses: ${greatestDecreaseMonth} ($${greatestDecrease})`
 );
+
+// Additional solution to populate the values in the HTML and not just in the console
+document.getElementById("total-months").textContent = finances.length;
+document.getElementById("total").textContent = "$" + total;
+document.getElementById("average-change").textContent =
+  roundedAverageMonthlyChange;
+document.getElementById("greatest-increase").textContent =
+  greatestIncreaseMonth + " ($" + greatestIncrease + ")";
+document.getElementById("greatest-decrease").textContent =
+  greatestDecreaseMonth + " ($" + greatestDecrease + ")";
