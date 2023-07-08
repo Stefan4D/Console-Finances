@@ -93,6 +93,12 @@ for (let i = 0; i < finances.length; i++) {
   total = total + finances[i][1];
 }
 
+// Calculate average monthly change
+
+// Calculate greatest increase in profits (date and amount) over the entire period
+
+// Calculate greatest decrease in profits (date and amount) over the entire period
+
 // Log answers to console
 console.log(`Financial Analysis`);
 console.log(`----------------------------`);
