@@ -93,7 +93,37 @@ for (let i = 0; i < finances.length; i++) {
   total = total + finances[i][1];
 }
 
-// Calculate average monthly change
+/*
+--------------------------------
+Calculate average monthly change
+--------------------------------
+
+Instructions:
+You will need to track what the total change in profits is from month to month and then find the average.
+
+(Total/(Number of months - 1))
+
+*/
+
+let averageMonthlyChange = 0;
+let totalChange = 0;
+
+for (let i = 0; i < finances.length - 1; i++) {
+  let _tempVariable = 0;
+  let j = i + 1;
+
+  // check change between months
+  _tempVariable = finances[j][1] - finances[i][1];
+
+  // add change between months to the running total of changes
+  totalChange = totalChange + _tempVariable;
+}
+
+// this gets the answer but needs to be rounded to 2 decimal places
+averageMonthlyChange = totalChange / (finances.length - 1);
+
+// round this to 2 decimal places using the Number.toFixed() method
+const roundedAverageMonthlyChange = averageMonthlyChange.toFixed(2);
 
 // Calculate greatest increase in profits (date and amount) over the entire period
 let greatestIncrease = 0;
@@ -160,7 +190,7 @@ console.log(`Financial Analysis`);
 console.log(`----------------------------`);
 console.log(`Total Months: ${finances.length}`);
 console.log(`Total: $${total}`);
-console.log(`Average Change: [INSERT SOLUTION]`);
+console.log(`Average Change: ${roundedAverageMonthlyChange}`);
 console.log(
   `Greatest Increase in Profits/Losses: ${greatestIncreaseMonth} ($${greatestIncrease})`
 );
